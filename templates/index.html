@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <title>Your Raspberry Stats</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="description" content="get info about your raspberry pi">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="ssebastianoo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2C3A47">
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Fira Code', monospace;
+            background: #2C3A47;
+            color: #F8EFBA;
+            top: 50%;
+            width: 100%;
+            position: absolute;
+            transform: translateY(-60%);
+            overflow: hidden;
+        }
+
+        div.stat {
+            text-align: left;
+            background: rgba(88, 177, 159, 0.5);
+            display: inline-block;
+            padding: 12px 12px;
+        }
+
+        .title {
+            text-align: left;
+            display: inline-block;
+            font-size: 25px;
+        }
+
+        .highlight {
+            background: rgba(44,58,71,0.5);
+        }
+
+        a {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Raspberry Pi</h1>
+    <div class="stats">
+        <p class="title">running for</p><br>
+        <div class="stat">
+            <a class="uptime"><a class="higlight">{{stats["uptime"]["days"]}}</a> days</a><br>
+            <a class="uptime"><a class="higlight">{{stats["uptime"]["hours"]}}</a> hours</a><br>
+            <a class="uptime"><a class="higlight">{{stats["uptime"]["minutes"]}}</a> minutes</a><br>
+            <a class="uptime"><a class="higlight">{{stats["uptime"]["seconds"]}}</a> seconds</a>
+        </div><br>
+        <p class="title">OS info</p><br>
+        <div class = "stat">
+            <a class = "highlight">{{stats["memory"]}}</a> <a>of memory used</a><br>
+            <a class = "highlight">{{stats["cpu"]}}</a> <a>of CPU used</a><br>
+            <a>running on <a class = "highlight">{{stats["system"]}}</a></a><br>
+            <a>node <a class="highlight">{{stats["node"]}}</a><br>
+            <a>with machine <a class="highlight">{{stats["machine"]}}</a></a><br>
+            <a>on <a class="highlight">{{stats["architecture"]}}</a></a><br>
+            <a>temperature at <a class="highlight">{{stats["temperature"]}}</a></a><br>
+        </div>
+    </div>
+</body>

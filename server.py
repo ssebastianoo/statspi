@@ -13,7 +13,14 @@ class Stats:
         minutes, seconds = divmod(x, 60)
         days, hours = divmod(hours, 24)
 
-        return f"{days} days, {hours} hours, {minutes} minutes, {seconds} seconds"
+        uptime = {
+            "days": days,
+            "hours": hours,
+            "minutes": minutes,
+            "seconds": seconds
+        }
+
+        return uptime
 
     def temperature(self):
         temp = os.popen("vcgencmd measure_temp").readline()
@@ -24,7 +31,7 @@ class Stats:
 
         stats = {
             "uptime": self.uptime(),
-            "memory": psutil.virtual_memory()[2],
+            "memory": f"{psutil.virtual_memory()[2]}%",
             "cpu": f"{psutil.cpu_percent()}%",
             "node": platform.node(),
             "system": platform.system(),
@@ -46,7 +53,7 @@ def index():
     for stat in rasp_info:
         stats_str += f"{stat}: {rasp_info[stat]}<br>"
 
-    return stats_str
+    return render_template("index.html", stats = rasp_info)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", debug = True)
