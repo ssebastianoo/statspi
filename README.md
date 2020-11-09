@@ -1,7 +1,7 @@
 # StatsPi
 `statspi` is a local website that gives you info about your raspberry pi.
 
-![statspi](https://imgur.com/a/tQNtaC7.png)
+![statspi](https://i.imgur.com/rlpZ1LX.png)
 
 ### How to Run
 open your terminal, go whatever you want and run
