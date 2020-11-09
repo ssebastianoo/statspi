@@ -41,5 +41,5 @@ fi
 python3 /home/pi/Desktop/codes/statspi/server.py &
 exit 0
 ```
-now reboot the raspberry, open the browser from any device connected to the same wifi as the raspberry and go to `raspberry ip:5000` (like `123.456.1.234:5000`)
+now reboot the raspberry, open the browser from any device connected to the same wifi as the raspberry and go to `raspberry ip` (like `123.456.1.234`)
 
