@@ -26,6 +26,18 @@ class Stats:
         temp = os.popen("vcgencmd measure_temp").readline()
         return (temp.replace("temp=",""))
 
+    def disk(self):
+        diskspace = os.popen("df -h").read().splitlines()[1].split()
+
+        disk_stats = {
+            "total": diskspace[1],
+            "used": diskspace[2],
+            "available": diskspace[3],
+            "using": diskspace[4]
+        }
+
+        return disk_stats
+
     def get_stats(self):
         "get all raspberry stats"
 
@@ -37,7 +49,8 @@ class Stats:
             "system": platform.system(),
             "machine": platform.machine(),
             "architecture": f"{platform.architecture()[1]} {platform.architecture()[0]}",
-            "temperature": self.temperature()
+            "temperature": self.temperature(),
+            "disk": self.disk()
         }      
         
         return stats

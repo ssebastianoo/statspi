@@ -63,6 +63,12 @@
             <a>with machine <a class="highlight">{{stats["machine"]}}</a></a><br>
             <a>on <a class="highlight">{{stats["architecture"]}}</a></a><br>
             <a>temperature at <a class="highlight">{{stats["temperature"]}}</a></a><br>
+        </div><br>
+        <p class="title">disk space</p><br>
+        <div class = "stat">
+            <a class = "highlight">{{stats["disk"]["total"]}}</a> <a>total</a><br>
+            <a class = "highlight">{{stats["disk"]["used"]}}</a> <a>used</a>(<a class="highlight">{{stats["disk"]["using"]}}</a>)<br>
+            <a class = "highlight">{{stats["available"]}}</a> <a>available</a><br>
         </div>
     </div>
 </body>
