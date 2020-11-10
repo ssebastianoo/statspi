@@ -40,7 +40,7 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-python3 /home/pi/Desktop/codes/statspi/server.py &
+sudo python3 /home/pi/Desktop/codes/statspi/server.py &
 exit 0
 ```
 now reboot the raspberry, open the browser from any device connected to the same wifi as the raspberry and go to `raspberry ip` (like `123.456.1.234`)
