@@ -17,7 +17,8 @@ sudo nano /etc/rc.local
 ```
 scroll down, and paste (on the line befor `exit 0`)
 ```
-python3 <location to folder>/server.py &
+cd <location to folder>
+python3 server.py &
 ```
 the file should look something like this:
 ```
@@ -40,7 +41,8 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-sudo python3 /home/pi/Desktop/codes/statspi/server.py &
+cd /home/pi/Desktop/codes/statspi
+sudo python3 server.py &
 exit 0
 ```
 now reboot the raspberry, open the browser from any device connected to the same wifi as the raspberry and go to `raspberry ip` (like `123.456.1.234`)
