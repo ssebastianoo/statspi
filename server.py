@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime, psutil, platform, os, json
 
 class Stats:
@@ -9,6 +9,7 @@ class Stats:
         f.close()
         self.host = config["host"]
         self.port = config["port"]
+        self.password = config["password"]
 
     def uptime(self):
         "get raspberry uptime"
@@ -63,8 +64,12 @@ class Stats:
 app = Flask(__name__)
 stats = Stats()
 
-@app.route("/")
+@app.route("/",methods=["GET","POST"])
 def index():
+    if request.method == "POST":
+        if request.form["password"] == stats.password:
+            os.system("reboot")
+            return "Restart successful"
     rasp_info = stats.get_stats()
     stats_str = ""
 
