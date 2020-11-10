@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import datetime, psutil, platform, os, json
 
 class Stats:
@@ -64,19 +64,23 @@ class Stats:
 app = Flask(__name__)
 stats = Stats()
 
-@app.route("/",methods=["GET","POST"])
+@app.route("/")
 def index():
-    if request.method == "POST":
-        if request.form["password"] == stats.password:
-            os.system("reboot")
-            return "Restart successful"
     rasp_info = stats.get_stats()
-    stats_str = ""
-
-    for stat in rasp_info:
-        stats_str += f"{stat}: {rasp_info[stat]}<br>"
-
     return render_template("index.html", stats = rasp_info)
+
+@app.route("/reboot", methods=["GET", "POST"])
+def restart():
+    if request.method == "POST":
+
+        if request.form["password"] == stats.password:
+            os.system("sudo reboot")
+            return render_template("restart.html")
+        else:
+            return render_template("index.html")
+
+    elif request.method == "GET":
+        return redirect("/")
 
 if __name__ == '__main__':
     app.run(host=stats.host, port=stats.port)

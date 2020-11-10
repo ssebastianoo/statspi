@@ -30,12 +30,31 @@
             font-size: 25px;
         }
 
+        .reboot-title {
+            text-align: left;
+            display: inline-block;
+            font-size: 17px;
+        }
+
         .highlight {
             background: rgba(44,58,71,0.5);
         }
 
         a {
             font-size: 20px;
+        }
+
+        #password {
+            border: none;
+            background: #222c36;
+            color: #F8EFBA;
+            font-family: 'Fira Code', monospace;
+            text-align: center;
+        }
+
+        #password:focus {
+            border: none;
+            outline: none;
         }
     </style>
 </head>
@@ -69,10 +88,10 @@
     
     <h1>Reboot</h1>
     <div class="reboot">
-        <form class="form" autocomplete="off" spellcheck="false" method="POST">
-            <label for="password">Insert your password to reboot the pi</label>
-            <br>
-            <input type="text" class="form-control" autofocus="autofocus" id="password" name="password">
+        <form autocomplete="off" spellcheck="false" method="POST" action="/reboot">
+            <p class="reboot-title">insert your password to reboot the pi</p><br>
+            <input type="password" id="password" name="password">
+            <br><br><br>
         </form>
     </div>
 </body>
