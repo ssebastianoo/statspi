@@ -45,3 +45,6 @@ exit 0
 ```
 now reboot the raspberry, open the browser from any device connected to the same wifi as the raspberry and go to `raspberry ip` (like `123.456.1.234`)
 
+### Setup Port and Host
+you can edit `host` and `port` editing `config.json`
+
