@@ -88,10 +88,10 @@
     
     <h1>Reboot</h1>
     <div class="reboot">
+        <p class="reboot-title">insert your password to reboot the pi</p><br>
         <form autocomplete="off" spellcheck="false" method="POST" action="/reboot">
-            <p class="reboot-title">insert your password to reboot the pi</p><br>
-            <input type="password" id="password" name="password">
-            <br><br><br>
+            <input type="password" id="password" name="password" required>
         </form>
+        <br><br><br>
     </div>
 </body>

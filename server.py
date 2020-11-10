@@ -72,13 +72,12 @@ def index():
 @app.route("/reboot", methods=["GET", "POST"])
 def restart():
     if request.method == "POST":
-
         if request.form["password"] == stats.password:
             os.system("sudo reboot")
             return render_template("restart.html")
         else:
-            return render_template("index.html")
-
+            return redirect("/")
+            
     elif request.method == "GET":
         return redirect("/")
 
