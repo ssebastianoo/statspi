@@ -1,9 +1,14 @@
 from flask import Flask, render_template
-import datetime, psutil, platform, os
+import datetime, psutil, platform, os, json
 
 class Stats:
     def __init__(self):
         self.launchtime = datetime.datetime.now()
+        f = open("config.json", "r")
+        config = json.load(f)
+        f.close()
+        self.host = config["host"]
+        self.port = config["port"]
 
     def uptime(self):
         "get raspberry uptime"
@@ -69,4 +74,4 @@ def index():
     return render_template("index.html", stats = rasp_info)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=80)
+    app.run(host=stats.host, port=stats.port)
