@@ -31,7 +31,7 @@
         }
 
         .reboot-title {
-            text-align: left;
+            text-align: center;
             display: inline-block;
             font-size: 17px;
         }
@@ -88,7 +88,7 @@
     
     <h1>Reboot</h1>
     <div class="reboot">
-        <p class="reboot-title">insert your password to reboot the pi</p><br>
+        <p class="reboot-title">insert your password<br>to reboot the pi</p><br>
         <form autocomplete="off" spellcheck="false" method="POST" action="/reboot">
             <input type="password" id="password" name="password" required>
         </form>
