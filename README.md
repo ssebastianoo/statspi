@@ -18,7 +18,7 @@ sudo nano /etc/rc.local
 scroll down, and paste (on the line befor `exit 0`)
 ```
 cd <location to folder>
-python3 server.py &
+sudo python3 server.py &
 ```
 the file should look something like this:
 ```
