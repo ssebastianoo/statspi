@@ -4,7 +4,7 @@
 ![statspi](https://i.imgur.com/rlpZ1LX.png)
 
 ### How to Run
-open your terminal, go whatever you want and run
+open your terminal, go wherever you want and run
 ```
 git clone https://github.com/ssebastianoo/statspi
 cd statspi
